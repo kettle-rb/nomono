@@ -1,4 +1,4 @@
-# Nomono
+# 1️⃣ Nomono
 
 `nomono` standardizes local sibling-gem dependency loading for multi-repo setups.
 

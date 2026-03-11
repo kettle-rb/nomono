@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter H. Boling"]
   spec.email = ["peter.boling@gmail.com"]
 
-  spec.summary = "ENV-driven Gemfile macros for sibling gem path resolution"
-  spec.description = "Provides nomono_gems and eval_nomono_gems to standardize local multi-repo dependency wiring in Gemfiles."
+  spec.summary = "1️⃣ ENV-driven Gemfile macros for sibling gem path resolution"
+  spec.description = "1️⃣ Provides nomono_gems and eval_nomono_gems to standardize local multi-repo dependency wiring in Gemfiles."
   spec.homepage = "https://github.com/kettle-rb/nomono"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"
