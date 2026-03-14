@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-# {KJ|FREEZE_TOKEN}:freeze
-# To retain chunks of comments & code during {KJ|GEM_NAME} templating:
+# kettle-jem:freeze
+# To retain chunks of comments & code during nomono templating:
 # Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
-# {KJ|GEM_NAME} will then preserve content between those markers across template runs.
-# {KJ|FREEZE_TOKEN}:unfreeze
+# nomono will then preserve content between those markers across template runs.
+# kettle-jem:unfreeze
 
-# {KJ|GEM_NAME} Rakefile v1.2.5 - 2025-11-28
+# nomono Rakefile v1.2.5 - 2025-11-28
 # Ruby 2.3 (Safe Navigation) or higher required
 #
 # MIT License (see License.txt)
 #
-# Copyright (c) 2025 {KJ|AUTHOR:NAME} ({KJ|AUTHOR:DOMAIN})
+# Copyright (c) 2026 Peter H. Boling (gmail.com)
 #
 # Expected to work in any project that uses Bundler.
 #
@@ -29,11 +29,11 @@
 # rake ci:act[opt]                            # Run 'act' with a selected workflow
 # rake coverage                               # Run specs w/ coverage and open results in...
 # rake default                                # Default tasks aggregator
-# rake install                                # Build and install {KJ|GEM_NAME}-1.0.0.gem in...
-# rake install:local                          # Build and install {KJ|GEM_NAME}-1.0.0.gem in...
-# rake kettle:jem:install                     # Install {KJ|GEM_NAME} GitHub automation and ...
-# rake kettle:jem:selftest                    # Self-test: template {KJ|GEM_NAME} against itse...
-# rake kettle:jem:template                    # Template {KJ|GEM_NAME} files into the curren...
+# rake install                                # Build and install nomono-1.0.0.gem in...
+# rake install:local                          # Build and install nomono-1.0.0.gem in...
+# rake kettle:jem:install                     # Install nomono GitHub automation and ...
+# rake kettle:jem:selftest                    # Self-test: template nomono against itse...
+# rake kettle:jem:template                    # Template nomono files into the curren...
 # rake reek                                   # Check for code smells
 # rake reek:update                            # Run reek and store the output into the RE...
 # rake release[remote]                        # Create tag v1.0.0 and build and push kett...
@@ -77,4 +77,3 @@ RuboCop::RakeTask.new
 task :default do
   puts "Default task complete."
 end
-
