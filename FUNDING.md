@@ -25,7 +25,7 @@ Many paths lead to being a sponsor or a backer of this project. Are you on such 
 [🖇buyme-small-img]: https://img.shields.io/badge/buy_me_a_coffee-%E2%9C%93-a51611.svg?style=flat
 [🖇buyme]: https://www.buymeacoffee.com/pboling
 [🖇paypal-img]: https://img.shields.io/badge/donate-paypal-a51611.svg?style=flat&logo=paypal
-[🖇paypal]: https://www.paypal.com/paypalme/pboling
+[🖇paypal]: https://www.paypal.com/paypalme/peterboling
 [✉️discord-invite]: https://discord.gg/3qme4XHNKN
 [✉️discord-invite-img]: https://img.shields.io/discord/1373797679469170758?style=flat
 

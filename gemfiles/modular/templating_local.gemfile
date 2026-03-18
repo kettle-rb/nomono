@@ -19,11 +19,8 @@ local_gems = %w[
   kettle-jem
 ]
 
-# export VENDORED_GEMS=bash-merge,dotenv-merge,json-merge,jsonc-merge,markdown-merge,prism-merge,prism-merge,psych-merge,rbs-merge,toml-merge,markly-merge,kettle-jem
+# export VENDORED_GEMS=bash-merge,dotenv-merge,json-merge,jsonc-merge,markdown-merge,prism-merge,psych-merge,rbs-merge,toml-merge,markly-merge,kettle-jem
 platform :mri do
-  # local_gems.each do |gem_name|
-  #   gem gem_name, path: gem_paths[gem_name]
-  # end
   eval_nomono_gems(
     gems: local_gems,
     prefix: "KETTLE_RB",

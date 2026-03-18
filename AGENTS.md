@@ -9,22 +9,13 @@ This project is a **RubyGem** managed with the [kettle-rb](https://github.com/ke
 
 ## ⚠️ AI Agent Terminal Limitations
 
-### Terminal Output Is Available, but Each Command Is Isolated
-
-**CRITICAL**: AI agents can reliably read terminal output when commands run in the background and the output is polled afterward. However, each terminal command should be treated as a fresh shell with no shared state.
-
-**Use this pattern**:
-1. Run commands with background execution enabled.
-2. Fetch the output afterward.
-3. Make every command self-contained — do **not** rely on a previous `cd`, `export`, alias, or shell function.
-
 ### Use `mise` for Project Environment
 
-**CRITICAL**: The canonical project environment now lives in `mise.toml`, with local overrides in `.env.local` loaded via `dotenvy`.
+**CRITICAL**: The canonical project environment lives in `mise.toml`, with local overrides in `.env.local` loaded via `dotenvy`.
 
 ⚠️ **Watch for trust prompts**: After editing `mise.toml` or `.env.local`, `mise` may require trust to be refreshed before commands can load the project environment. Until that trust step is handled, commands can appear hung or produce no output, which can look like terminal access is broken.
 
-**Recovery rule**: If a `mise exec` command goes silent, appears hung, or terminal polling keeps returning `null`, assume `mise trust` is the first thing to check. Recover by running:
+**Recovery rule**: If a `mise exec` command goes silent or appears hung, assume `mise trust` is the first thing to check. Recover by running:
 
 ```bash
 mise trust -C /path/to/project
@@ -32,10 +23,6 @@ mise exec -C /path/to/project -- bundle exec rspec
 ```
 
 Do this before spending time on unrelated debugging; in this workspace pattern, silent `mise` commands are usually a trust problem first.
-
-```bash
-mise trust -C /path/to/project
-```
 
 ✅ **CORRECT** — Run self-contained commands with `mise exec`:
 ```bash
@@ -76,17 +63,7 @@ Only use terminal for:
 - Git operations that require interaction
 - Commands that actually need to execute (not just gather info)
 
-### NEVER Pipe Test Commands Through head/tail
-
-❌ **ABSOLUTELY FORBIDDEN**:
-```bash
-bundle exec rspec 2>&1 | tail -50
-```
-
-✅ **CORRECT** — Run the plain command and read the full output afterward:
-```bash
-mise exec -C /path/to/project -- bundle exec rspec
-```
+When you do run tests, keep the full output visible so you can inspect failures completely.
 
 ## 🏗️ Architecture
 

@@ -40,6 +40,11 @@
 #     false - do not add template-only nodes
 #   freeze_token:
 #     Marker name used for frozen sections (default: kettle-jem)
+#   file_type:
+#     Optional explicit merge-engine hint for extensionless or ambiguous files.
+#     Supported values: ruby, gemfile, appraisals, gemspec, rakefile,
+#     yaml, markdown, bash, tool_versions, text, json, jsonc, toml,
+#     dotenv, rbs
 #   max_recursion_depth:
 #     Limit for recursive merging when a merger supports it
 #
@@ -65,6 +70,18 @@
 #   AUTHOR:FAMILY_NAMES <- last word of AUTHOR:NAME
 #
 # Everything else should be set explicitly here or via ENV.
+
+# Engines this project supports.
+# List the Ruby engines that your gem targets. kettle-jem uses this to decide
+# which CI workflows, README compatibility rows, and badge references to
+# include. Engines not listed here are pruned from generated files.
+#
+# Supported values: ruby, jruby, truffleruby
+# Default (when key is absent): all three engines.
+engines:
+  - ruby
+  - jruby
+  - truffleruby
 
 # Default merge options
 defaults:
@@ -133,6 +150,11 @@ files: {}
 #   certs:
 #     pboling.pem:
 #       strategy: raw_copy
+#
+#   .git-hooks:
+#     commit-msg:
+#       strategy: merge
+#       file_type: ruby
 #
 #   Rakefile:
 #     strategy: merge

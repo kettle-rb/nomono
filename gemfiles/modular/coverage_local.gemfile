@@ -5,13 +5,14 @@
 
 require File.expand_path("../../../nomono/lib/nomono/bundler", __dir__)
 
-local_gems = %w[kettle-dev kettle-test kettle-soup-cover]
+local_gems = %w[
+  kettle-dev
+  kettle-test
+  kettle-soup-cover
+]
 
 # export VENDORED_GEMS=kettle-dev,kettle-test,kettle-soup-cover
 platform :mri do
-  # local_gems.each do |gem_name|
-  #   gem gem_name, path: gem_paths[gem_name]
-  # end
   eval_nomono_gems(
     gems: local_gems,
     prefix: "KETTLE_RB",
