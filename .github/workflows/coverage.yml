@@ -56,14 +56,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-
       - name: Setup Ruby & RubyGems
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "${{ matrix.ruby }}"
           rubygems: "${{ matrix.rubygems }}"
           bundler: "${{ matrix.bundler }}"
-          bundler-cache: false
+          bundler-cache: true
+      - name: "[Attempt 1] Appraisal for ${{ matrix.ruby }}@${{ matrix.appraisal }}"
+        id: bundleAppraisalAttempt1
+        run: bundle exec appraisal ${{ matrix.appraisal }} install
+        # Continue to the next step on failure
+        continue-on-error: true
+
+      # Effectively an automatic retry of the previous step.
+      - name: "[Attempt 2] Appraisal for ${{ matrix.ruby }}@${{ matrix.appraisal }}"
+        id: bundleAppraisalAttempt2
+        # If bundleAppraisalAttempt1 failed, try again here; Otherwise skip.
+        if: ${{ steps.bundleAppraisalAttempt1.outcome == 'failure' }}
+        run: bundle exec appraisal ${{ matrix.appraisal }} install
 
       # Raw `bundle` will use the BUNDLE_GEMFILE set to matrix.gemfile (i.e. Appraisal.root)
       # We need to do this first to get appraisal installed.
@@ -74,7 +85,6 @@ jobs:
         run: bundle exec appraisal ${{ matrix.appraisal }} install
       - name: Tests for ${{ matrix.ruby }}@current via ${{ matrix.exec_cmd }}
         run: bundle exec appraisal ${{ matrix.appraisal }} bundle exec ${{ matrix.exec_cmd }}
-
       # Do SaaS coverage uploads first
       - name: Upload coverage to Coveralls
         if: ${{ !env.ACT }}
@@ -82,7 +92,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: ${{ matrix.experimental != 'false' }}
-
       - name: Upload coverage to QLTY
         if: ${{ !env.ACT }}
         uses: qltysh/qlty-action/coverage@main
@@ -90,7 +99,6 @@ jobs:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
           files: coverage/.resultset.json
         continue-on-error: ${{ matrix.experimental != 'false' }}
-
       # Build will fail here if coverage upload fails
       #   which will hopefully be noticed for the lack of code coverage comments
       - name: Upload coverage to CodeCov
@@ -101,7 +109,6 @@ jobs:
           fail_ci_if_error: false # optional (default = false)
           files: coverage/lcov.info,coverage/coverage.xml
           verbose: true # optional (default = false)
-
       # Then PR comments
       - name: Code Coverage Summary Report
         if: ${{ !env.ACT && github.event_name == 'pull_request' }}
@@ -117,9 +124,8 @@ jobs:
           output: both
           thresholds: '100 100'
         continue-on-error: ${{ matrix.experimental != 'false' }}
-
       - name: Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v3
+        uses: marocchino/sticky-pull-request-comment@v2
         if: ${{ !env.ACT && github.event_name == 'pull_request' }}
         with:
           recreate: true

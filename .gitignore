@@ -52,3 +52,4 @@ Appraisal.*.gemfile.lock
 
 # Sentinels
 .floss_funding.*.lock
+# Local environment overrides (KEY=value, loaded by mise via dotenvy)
