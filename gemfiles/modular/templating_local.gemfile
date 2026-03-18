@@ -6,6 +6,8 @@
 require File.expand_path("../../../nomono/lib/nomono/bundler", __dir__)
 
 local_gems = %w[
+  tree_haver
+  ast-merge
   bash-merge
   dotenv-merge
   json-merge
