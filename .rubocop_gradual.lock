@@ -1,0 +1,14 @@
+{
+  "lib/nomono.rb:1905569294": [
+    [13, 5, 9, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 572853923]
+  ],
+  "spec/dsl_spec.rb:3769288159": [
+    [3, 1, 33, "RSpec/SpecFilePathFormat: Spec path should end with `nomono/gemfile_dsl*_spec.rb`.", 2079433441]
+  ],
+  "spec/nomono_spec.rb:271006018": [
+    [12, 48, 2, "RSpec/BeEq: Prefer `be` over `eq`.", 5860785]
+  ],
+  "spec/resolver_spec.rb:1026428681": [
+    [3, 1, 31, "RSpec/SpecFilePathFormat: Spec path should end with `nomono/resolver*_spec.rb`.", 2525703605]
+  ]
+}

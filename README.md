@@ -1,11 +1,11 @@
-[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-i]][🖼️galtzo-discord] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![nomono Logo by Aboling0, CC BY-SA 4.0][🖼️nomono-i]][🖼️nomono]
+[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-i]][🖼️galtzo-discord] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![kettle-rb Logo by Aboling0, CC BY-SA 4.0][🖼️kettle-rb-i]][🖼️kettle-rb]
 
 [🖼️galtzo-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
 [🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
 [🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
 [🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️nomono-i]: https://logos.galtzo.com/assets/images/kettle-rb/nomono/avatar-192px.svg
-[🖼️nomono]: https://github.com/kettle-rb/nomono
+[🖼️kettle-rb-i]: https://logos.galtzo.com/assets/images/kettle-rb/avatar-192px.svg
+[🖼️kettle-rb]: https://github.com/kettle-rb
 
 # 1️⃣ Nomono
 
@@ -27,6 +27,15 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 </details>
 
 ## 🌻 Synopsis
+
+`nomono` standardizes local sibling-gem dependency loading for multi-repo setups.
+
+It provides two Gemfile macros:
+
+- `nomono_gems(**opts)` returns `{ gem_name => absolute_path }`
+- `eval_nomono_gems(**opts)` directly emits `gem "name", path: "..."`
+
+The API mirrors existing `*_local.gemfile` patterns used in kettle-rb projects, but centralizes path/env logic in one reusable library.
 
 ## 💡 Info you can shake a stick at
 
@@ -142,7 +151,47 @@ NOTE: Be prepared to track down certs for signed gems and add them the same way 
 
 ## ⚙️ Configuration
 
+Nomono has an *environment contract*. By default (`prefix: "NOMONO_GEMS"`):
+
+- `NOMONO_GEMS_DEV` controls local mode (`false` disables; `true` uses `~/src/kettle-rb`; any other value is a path)
+- `NOMONO_GEMS_VENDORED_GEMS` (or legacy `VENDORED_GEMS`) is a comma-delimited list of gems resolved from vendor dir
+- `NOMONO_GEMS_VENDOR_GEM_DIR` (or legacy `VENDOR_GEM_DIR`) points at the vendor base path
+- `NOMONO_GEMS_DEBUG` enables debug output
+
+Override env variable names with options:
+
+```ruby
+nomono_gems(
+  gems: %w[rubocop-lts rubocop-ruby3_2],
+  prefix: "RUBOCOP_LTS",
+  path_env: "RUBOCOP_LTS_LOCAL",
+  vendored_gems_env: "VENDORED_GEMS",
+  vendor_gem_dir_env: "VENDOR_GEM_DIR",
+  debug_env: "RUBOCOP_LTS_DEBUG",
+)
+```
+
 ## 🔧 Basic Usage
+
+
+In your Gemfile (or a modular Gemfile loaded via `eval_gemfile`):
+
+```ruby
+require "nomono/bundler"
+
+local_gems = %w[
+  kettle-dev
+  kettle-test
+  kettle-soup-cover
+]
+
+if ENV.fetch("KETTLE_RB_DEV", "false").casecmp("false").zero?
+  # remote/released gems
+  gem "kettle-soup-cover", require: false
+else
+  eval_nomono_gems(gems: local_gems, prefix: "KETTLE_RB")
+end
+```
 
 ## 🦷 FLOSS Funding
 

@@ -2,7 +2,7 @@
 
 RSpec.describe Nomono do
   it "has a version number" do
-    expect(Nomono::VERSION).not_to be nil
+    expect(Nomono::VERSION).not_to be_nil
   end
 
   describe ".install!" do

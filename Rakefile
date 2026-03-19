@@ -82,4 +82,3 @@ RuboCop::RakeTask.new
 task :default do
   puts "Default task complete."
 end
-
