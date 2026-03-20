@@ -149,7 +149,7 @@ GEM
       version_gem (~> 1.1, >= 1.1.9)
     matrix (0.4.3)
     mutex_m (0.3.0)
-    nokogiri (1.19.1-x86_64-linux-gnu)
+    nokogiri (1.19.2-x86_64-linux-gnu)
       racc (~> 1.4)
     oppen (1.0.0)
     ostruct (0.6.3)
@@ -400,6 +400,7 @@ DEPENDENCIES
   erb (~> 5.0)
   gem_bench (~> 2.0, >= 2.0.5)
   gitmoji-regex (~> 1.0, >= 1.0.3)
+  irb (~> 1.17)
   kettle-dev (~> 2.0)
   kettle-jem
   kettle-soup-cover (~> 1.1, ~> 1.0, >= 1.1.1, >= 1.0.10)
@@ -483,7 +484,7 @@ CHECKSUMS
   markly-merge (1.0.0) sha256=f41e60b67875d0e38756f58346e0e60cc1d7d56204a7820dd065b97895e88c7d
   matrix (0.4.3) sha256=a0d5ab7ddcc1973ff690ab361b67f359acbb16958d1dc072b8b956a286564c5b
   mutex_m (0.3.0) sha256=cfcb04ac16b69c4813777022fdceda24e9f798e48092a2b817eb4c0a782b0751
-  nokogiri (1.19.1-x86_64-linux-gnu) sha256=1a4902842a186b4f901078e692d12257678e6133858d0566152fe29cdb98456a
+  nokogiri (1.19.2-x86_64-linux-gnu) sha256=fa8feca882b73e871a9845f3817a72e9734c8e974bdc4fbad6e4bc6e8076b94f
   nomono (0.1.0)
   oppen (1.0.0) sha256=379bf0b35c5e87c5f4139927721fd6c9f561e344a73ce3f658726a609034ddee
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
