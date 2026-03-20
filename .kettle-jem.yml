@@ -2,6 +2,13 @@ engines:
   - ruby
   - jruby
   - truffleruby
+# README top logo mode.
+# Controls whether the generated README header includes the GitHub org logo,
+# the project logo, or both after the shared Galtzo and ruby-lang logos.
+# Supported values: org, project, org_and_project
+# Default (when key is absent): org_and_project
+readme:
+  top_logo_mode: org_and_project
 defaults:
   preference: "template"
   add_template_only_nodes: true
@@ -36,15 +43,7 @@ patterns:
   - path: "certs/**"
     strategy: raw_copy
 
-# Per-file configuration (nested directory structure)
-# Only files that need overrides belong here. Everything else defaults to merge.
-# Per-file configuration (nested directory structure)
-# Only files that need overrides belong here. Everything else defaults to merge.
-  - path: "certs/**"
-    strategy: raw_copy
 
-# Per-file configuration (nested directory structure)
-# Only files that need overrides belong here. Everything else defaults to merge.
 # Per-file configuration (nested directory structure)
 # Only files that need overrides belong here. Everything else defaults to merge.
 files: {}
@@ -53,9 +52,27 @@ files: {}
 # divergence reaches or exceeds that percent. Leave blank to report only.
 # Divergence is currently measured as the percent of produced files that would
 # change or be added during templating (100 - unchanged-file score).
-# Self-test / templating CI threshold.
-# Set to a number from 0 to 100 to fail `rake kettle:jem:selftest` once
-# divergence reaches or exceeds that percent. Leave blank to report only.
-# Divergence is currently measured as the percent of produced files that would
-# change or be added during templating (100 - unchanged-file score).
 min_divergence_threshold:
+
+# To override specific files, add entries like:
+#
+# files:
+#   README.md:
+#     strategy: accept_template
+#
+#   SECURITY.md:
+#     strategy: keep_destination
+#
+#   certs:
+#     pboling.pem:
+#       strategy: raw_copy
+#
+#   .git-hooks:
+#     commit-msg:
+#       strategy: merge
+#       file_type: ruby
+#
+#   Rakefile:
+#     strategy: merge
+#     preference: destination
+#     add_template_only_nodes: false

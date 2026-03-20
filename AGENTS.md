@@ -120,7 +120,13 @@ gemfiles/
 
 ## 🔧 Development Workflows
 
+### Running Commands
+
+Always make commands self-contained. Use `mise exec -C /home/pboling/src/kettle-rb/prism-merge -- ...` so the command gets the project environment in the same invocation.
+
 ### Running Tests
+
+Full suite spec runs:
 
 ```bash
 mise exec -C /path/to/project -- bundle exec rspec

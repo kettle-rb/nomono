@@ -64,6 +64,11 @@ require "kettle/jem"
 # Setup stone_checksums
 begin
   require "stone_checksums"
+rescue LoadError
+  desc("(stub) build:generate_checksums is unavailable")
+  task("build:generate_checksums") do
+    warn("NOTE: stone_checksums isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
+  end
 end
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
