@@ -216,9 +216,3 @@ end
 2. **NEVER expect `cd` to persist** — Every terminal command is isolated; use a self-contained `mise exec -C ... -- ...` invocation.
 3. **NEVER pipe test output through `head`/`tail`** — Run tests without truncation so you can inspect the full output.
 4. **Terminal commands do not share shell state** — Previous `cd`, `export`, aliases, and functions are not available to the next command.
-
-### Running Commands
-
-Always make commands self-contained. Use `mise exec -C /home/pboling/src/kettle-rb/prism-merge -- ...` so the command gets the project environment in the same invocation.
-Full suite spec runs:
-
