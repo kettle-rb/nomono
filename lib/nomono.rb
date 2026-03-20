@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# External gems
+require "version_gem"
+
+# This gem
 require_relative "nomono/version"
 require_relative "nomono/resolver"
 require_relative "nomono/dsl"
@@ -23,3 +27,7 @@ module Nomono
 end
 
 Nomono.install!
+
+Nomono::Version.class_eval do
+  extend VersionGem::Basic
+end
