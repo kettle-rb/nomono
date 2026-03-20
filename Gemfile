@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# See unlocked_deps appraisal for more details on irb inclusion
+gem "irb", "~> 1.17" # ruby >= 2.7
 # kettle-jem:freeze
 # To retain chunks of comments & code during nomono templating:
 # Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
@@ -38,3 +40,4 @@ eval_gemfile "gemfiles/modular/optional.gemfile"
 
 ### Std Lib Extracted Gems
 eval_gemfile "gemfiles/modular/x_std_libs.gemfile"
+
