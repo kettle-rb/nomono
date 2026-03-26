@@ -10,11 +10,7 @@ require File.expand_path("../../../nomono/lib/nomono/bundler", __dir__)
 
 require File.expand_path("../../lib/nomono/bundler", __dir__)
 
-local_gems = %w[
-  kettle-dev
-  kettle-test
-  kettle-soup-cover
-]
+local_gems = %w[kettle-dev kettle-test kettle-soup-cover]
 
 # export VENDORED_GEMS=kettle-dev,kettle-test,kettle-soup-cover
 platform :mri do

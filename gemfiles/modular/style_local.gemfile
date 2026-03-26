@@ -16,12 +16,7 @@ require File.expand_path("../../../nomono/lib/nomono/bundler", __dir__)
 
 require File.expand_path("../../lib/nomono/bundler", __dir__)
 
-local_gems = %w[
-  rubocop-lts
-  rubocop-lts-rspec
-  rubocop-ruby3_2
-  standard-rubocop-lts
-]
+local_gems = %w[rubocop-lts rubocop-lts-rspec rubocop-ruby3_2 standard-rubocop-lts]
 
 # export VENDORED_GEMS=rubocop-lts,rubocop-lts-rspec,rubocop-ruby3_2,standard-rubocop-lts
 platform :mri do
