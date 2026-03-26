@@ -6,9 +6,7 @@
 # Local path overrides for development.
 # Loaded by the associated non-local gemfile when RUBOCOP_LTS_LOCAL != "false".
 
-# kettle-jem:freeze
 require_relative "../../lib/nomono/bundler" # rubocop:disable Packaging/RequireRelativeHardcodingLib
-# kettle-jem:unfreeze
 
 local_gems = %w[rubocop-lts rubocop-lts-rspec rubocop-ruby3_2 standard-rubocop-lts]
 

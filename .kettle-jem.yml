@@ -46,7 +46,18 @@ patterns:
 
 # Per-file configuration (nested directory structure)
 # Only files that need overrides belong here. Everything else defaults to merge.
-files: {}
+files:
+  gemfiles:
+    modular:
+      coverage_local.gemfile:
+        strategy: merge
+        recipe: .kettle-jem/recipes/nomono_local_gemfile.yml
+      style_local.gemfile:
+        strategy: merge
+        recipe: .kettle-jem/recipes/nomono_local_gemfile.yml
+      templating_local.gemfile:
+        strategy: merge
+        recipe: .kettle-jem/recipes/nomono_local_gemfile.yml
 # Self-test / templating CI threshold.
 # Set to a number from 0 to 100 to fail `rake kettle:jem:selftest` once
 # divergence reaches or exceeds that percent. Leave blank to report only.

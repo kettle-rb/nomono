@@ -1,0 +1,15 @@
+name: nomono_local_gemfile
+description: Preserve nomono's local bundler bootstrap while smart-merging *_local.gemfile files
+parser: prism
+merge:
+  preference: template
+  add_missing: true
+  signature_generator: signature_generator.rb
+freeze_token: kettle-jem
+steps:
+  - kind: smart_merge
+    name: smart_merge
+
+  - kind: ruby_script
+    name: normalize_nomono_bootstrap
+    script: normalize_nomono_bootstrap.rb

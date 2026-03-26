@@ -3,9 +3,7 @@
 # Local path overrides for development.
 # Loaded by the associated non-local gemfile when KETTLE_RB_DEV != "false".
 
-# kettle-jem:freeze
 require_relative "../../lib/nomono/bundler" # rubocop:disable Packaging/RequireRelativeHardcodingLib
-# kettle-jem:unfreeze
 
 local_gems = %w[
   tree_haver
