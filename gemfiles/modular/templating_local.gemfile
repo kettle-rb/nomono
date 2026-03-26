@@ -3,7 +3,9 @@
 # Local path overrides for development.
 # Loaded by the associated non-local gemfile when KETTLE_RB_DEV != "false".
 
+# kettle-jem:freeze
 require_relative "../../lib/nomono/bundler" # rubocop:disable Packaging/RequireRelativeHardcodingLib
+# kettle-jem:unfreeze
 
 local_gems = %w[
   tree_haver
@@ -29,6 +31,6 @@ platform :mri do
     path_env: "KETTLE_RB_DEV",
     vendored_gems_env: "VENDORED_GEMS",
     vendor_gem_dir_env: "VENDOR_GEM_DIR",
-    debug_env: "KETTLE_DEV_DEBUG",
+    debug_env: "KETTLE_DEV_DEBUG"
   )
 end
