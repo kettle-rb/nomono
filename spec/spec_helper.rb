@@ -6,6 +6,9 @@
 # Simplecov & related config (must run BEFORE any other requires)
 # NOTE: Gemfiles for older rubies won't have kettle-soup-cover.
 #       The rescue LoadError handles that scenario.
+# NOTE: We can't track coverage in this gem when local dependencies are used,
+#       because they result in loading this gem early.
+#       To generate coverage data KETTLE_RB_DEV=true must be set.
 begin
   require "kettle-soup-cover"
   require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!

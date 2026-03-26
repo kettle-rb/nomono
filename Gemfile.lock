@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nomono (0.1.0)
+    nomono (1.0.0)
       version_gem (~> 1.1, >= 1.1.9)
 
 PATH
@@ -561,7 +561,7 @@ CHECKSUMS
   matrix (0.4.3) sha256=a0d5ab7ddcc1973ff690ab361b67f359acbb16958d1dc072b8b956a286564c5b
   mutex_m (0.3.0) sha256=cfcb04ac16b69c4813777022fdceda24e9f798e48092a2b817eb4c0a782b0751
   nokogiri (1.19.2-x86_64-linux-gnu) sha256=fa8feca882b73e871a9845f3817a72e9734c8e974bdc4fbad6e4bc6e8076b94f
-  nomono (0.1.0)
+  nomono (1.0.0)
   oppen (1.0.0) sha256=379bf0b35c5e87c5f4139927721fd6c9f561e344a73ce3f658726a609034ddee
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
