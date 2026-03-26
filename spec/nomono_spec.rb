@@ -9,7 +9,7 @@ RSpec.describe Nomono do
     it "adds macros to a provided DSL class" do
       dsl = Class.new
 
-      expect(described_class.install!(dsl)).to eq(true)
+      expect(described_class.install!(dsl)).to be(true)
       expect(dsl.instance_methods).to include(:nomono_gems, :eval_nomono_gems)
     end
   end

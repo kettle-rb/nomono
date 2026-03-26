@@ -14,7 +14,7 @@ module Nomono
   module_function
 
   def resolver
-    @resolver ||= Resolver.new
+    Resolver.new
   end
 
   def install!(dsl_class = nil)

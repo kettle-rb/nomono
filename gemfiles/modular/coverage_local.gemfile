@@ -3,7 +3,7 @@
 # Local path overrides for development.
 # Loaded by the associated non-local gemfile when KETTLE_RB_DEV != "false".
 
-require_relative "../../lib/nomono/bundler"
+require_relative "../../lib/nomono/bundler" # rubocop:disable Packaging/RequireRelativeHardcodingLib
 
 local_gems = %w[kettle-dev kettle-test kettle-soup-cover]
 
