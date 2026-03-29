@@ -20,6 +20,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Improved documentation of ENV variables and overrides in README.md
+
 ### Changed
 
 ### Deprecated
