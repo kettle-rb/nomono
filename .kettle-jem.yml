@@ -30,6 +30,19 @@ readme:
 #     are all present, a use-case guide table is added to README and LICENSE.md.
 licenses:
   - MIT
+# Machine / automation accounts to exclude from generated copyright output.
+#
+# When kettle-jem collects copyright information via `git blame`, it filters
+# out known GitHub/GitLab bot accounts automatically.  Use this list to also
+# exclude internal automation accounts that are not bots in the git sense
+# (i.e. they do not follow the "[bot]" naming convention).
+#
+# Each entry is matched case-insensitively against the commit author name AND
+# the commit author email, so you can list either form.
+#
+# Default (when key is absent or empty): ["autobolt"]
+machine_users:
+  - autobolt
 defaults:
   preference: "template"
   add_template_only_nodes: true
