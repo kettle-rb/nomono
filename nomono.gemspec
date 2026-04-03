@@ -16,7 +16,6 @@ Gem::Specification.new do |spec|
   spec.description = "🍲 Provides nomono_gems and eval_nomono_gems to standardize local multi-repo dependency wiring in Gemfiles."
   spec.homepage = "https://github.com/kettle-rb/nomono"
   spec.licenses = ["MIT"]
-  spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"
 
   # Linux distros often package gems and securely certify them independent

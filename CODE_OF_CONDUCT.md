@@ -1,4 +1,4 @@
-# Code of Conduct
+# Contributor Covenant Code of Conduct
 
 "nomono" follows [The Ruby Community Conduct Guideline](https://www.ruby-lang.org/en/conduct) in all "collaborative space", which is defined as community communications channels (such as mailing lists, submitted patches, commit comments, etc.):
 
