@@ -36,6 +36,13 @@ PATH
       version_gem (~> 1.1, >= 1.1.9)
 
 PATH
+  remote: /home/pboling/src/kettle-rb/jsonc-merge
+  specs:
+    jsonc-merge (2.0.0)
+      json-merge (>= 2.0)
+      version_gem (~> 1.1, >= 1.1.9)
+
+PATH
   remote: /home/pboling/src/kettle-rb/kettle-dev
   specs:
     kettle-dev (2.0.0)
@@ -47,16 +54,19 @@ PATH
     kettle-jem (1.0.0)
       ast-merge (~> 5.0, >= 5.0.0)
       bash-merge (~> 3.0)
+      citrus (~> 3.0, >= 3.0.2)
       dotenv-merge (~> 2.0)
       json-merge (~> 2.0)
       kettle-dev (~> 2.0)
       markdown-merge (~> 2.0)
       markly-merge (~> 2.0)
+      parslet (~> 2.0)
       prism-merge (~> 3.0)
       psych-merge (~> 2.0)
       rbs-merge (~> 3.0)
       token-resolver (~> 1.0, >= 1.0.2)
       toml-merge (~> 3.0)
+      toml-rb (~> 4.1)
       tree_haver (~> 6.0, >= 6.0.0)
       version_gem (~> 1.1, >= 1.1.9)
 
@@ -164,6 +174,7 @@ GEM
     bundler-audit (0.9.3)
       bundler (>= 1.2.0)
       thor (~> 1.0)
+    citrus (3.0.2)
     concurrent-ruby (1.3.6)
     date (3.5.1)
     debug (1.11.1)
@@ -375,7 +386,7 @@ GEM
     simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     simplecov_json_formatter (0.1.4)
-    sorbet-runtime (0.6.13082)
+    sorbet-runtime (0.6.13092)
     standard (1.54.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -410,6 +421,9 @@ GEM
       version_gem (~> 1.1, >= 1.1.9)
     toml (0.3.0)
       parslet (>= 1.8.0, < 3.0.0)
+    toml-rb (4.1.0)
+      citrus (~> 3.0, > 3.0)
+      racc (~> 1.7)
     tsort (0.2.0)
     ttfunk (1.8.0)
       bigdecimal (~> 3.1)
@@ -461,6 +475,7 @@ DEPENDENCIES
   gitmoji-regex (~> 1.0, >= 1.0.3)
   irb (~> 1.17)
   json-merge!
+  jsonc-merge!
   kettle-dev (~> 2.0, >= 0)!
   kettle-jem!
   kettle-soup-cover (~> 1.1, >= 1.1.1, >= 0)!
@@ -514,6 +529,7 @@ CHECKSUMS
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
   bigdecimal (3.3.1) sha256=eaa01e228be54c4f9f53bf3cc34fe3d5e845c31963e7fcc5bedb05a4e7d52218
   bundler-audit (0.9.3) sha256=81c8766c71e47d0d28a0f98c7eed028539f21a6ea3cd8f685eb6f42333c9b4e9
+  citrus (3.0.2) sha256=4ec2412fc389ad186735f4baee1460f7900a8e130ffe3f216b30d4f9c684f650
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
   debug (1.11.1) sha256=2e0b0ac6119f2207a6f8ac7d4a73ca8eb4e440f64da0a3136c30343146e952b6
@@ -536,6 +552,7 @@ CHECKSUMS
   irb (1.17.0) sha256=168c4ddb93d8a361a045c41d92b2952c7a118fa73f23fe14e55609eb7a863aae
   json (2.19.3) sha256=289b0bb53052a1fa8c34ab33cc750b659ba14a5c45f3fcf4b18762dc67c78646
   json-merge (2.0.0)
+  jsonc-merge (2.0.0)
   kettle-dev (2.0.0)
   kettle-jem (1.0.0)
   kettle-soup-cover (1.1.1)
@@ -611,7 +628,7 @@ CHECKSUMS
   simplecov-lcov (0.9.0) sha256=7a77a31e200a595ed4b0249493056efd0c920601f53d2ef135ca34ee796346cd
   simplecov-rcov (0.3.7) sha256=372f50bf6df6b6350b7d0c840f2f8bdabe021861a43c26877b747c9ac96139fc
   simplecov_json_formatter (0.1.4) sha256=529418fbe8de1713ac2b2d612aa3daa56d316975d307244399fa4838c601b428
-  sorbet-runtime (0.6.13082) sha256=e0821d6407631f5842d9cbf6a8e64cbf4f5e719279fec8655b6e2af75aa5c50e
+  sorbet-runtime (0.6.13092) sha256=892acfb1f27a2d3d2b5eeabf718883f780ec0cbeca484bd282c72315217e361d
   standard (1.54.0) sha256=7a4b08f83d9893083c8f03bc486f0feeb6a84d48233b40829c03ef4767ea0100
   standard-custom (1.0.2) sha256=424adc84179a074f1a2a309bb9cf7cd6bfdb2b6541f20c6bf9436c0ba22a652b
   standard-performance (1.9.0) sha256=49483d31be448292951d80e5e67cdcb576c2502103c7b40aec6f1b6e9c88e3f2
@@ -625,6 +642,7 @@ CHECKSUMS
   token-resolver (1.0.2) sha256=bb7d1623f7552487f0880d3f64c2fc5c3de5bf838d78434c05ee0d6f2a37f721
   toml (0.3.0) sha256=0a91d0f76a9036e84e44f95693b12f58d358c1df3ac8e3b5271f2056ecc6e4b9
   toml-merge (3.0.0)
+  toml-rb (4.1.0) sha256=14456ec4549e4703881bf04b83a56f3264ef99884880092d83c98a2058d95846
   tree_haver (6.0.0)
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   ttfunk (1.8.0) sha256=a7cbc7e489cc46e979dde04d34b5b9e4f5c8f1ee5fc6b1a7be39b829919d20ca
