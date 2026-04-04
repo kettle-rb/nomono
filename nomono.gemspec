@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.summary = "🍲 ENV-driven Gemfile macros for sibling gem path resolution"
   spec.description = "🍲 Provides nomono_gems and eval_nomono_gems to standardize local multi-repo dependency wiring in Gemfiles."
   spec.homepage = "https://github.com/kettle-rb/nomono"
-  spec.licenses = ["MIT"]
+  spec.licenses = ["AGPL-3.0-only", "PolyForm-Small-Business-1.0.0", "LicenseRef-Big-Time-Public-License"]
   spec.required_ruby_version = ">= 3.2.0"
 
   # Linux distros often package gems and securely certify them independent
