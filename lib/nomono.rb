@@ -5,6 +5,7 @@ require "version_gem"
 
 # This gem
 require_relative "nomono/version"
+
 require_relative "nomono/resolver"
 require_relative "nomono/dsl"
 
