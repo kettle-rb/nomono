@@ -99,6 +99,8 @@ patterns:
 files:
   gemfiles:
     modular:
+      templating.gemfile:
+        strategy: accept_template
       coverage_local.gemfile:
         strategy: merge
         recipe: .kettle-jem/recipes/nomono_local_gemfile.yml
