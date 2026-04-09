@@ -93,7 +93,6 @@ patterns:
   - path: "certs/**"
     strategy: raw_copy
 
-
 # Per-file configuration (nested directory structure)
 # Only files that need overrides belong here. Everything else defaults to merge.
 files:

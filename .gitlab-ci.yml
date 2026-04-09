@@ -36,7 +36,6 @@ workflow:
     # For tags, create a pipeline.
     - if: '$CI_COMMIT_TAG'
 
-
 .test_template-current: &test_definition-current
   stage: test
   script:
@@ -100,7 +99,6 @@ ruby-current:
     matrix:
       - RUBY_VERSION: ["3.2", "3.3", "3.4"]
 
-
 ruby-ruby3_1:
   variables:
     RUBYGEMS_VERSION: "3.6.9"
@@ -111,7 +109,6 @@ ruby-ruby3_1:
     matrix:
       - RUBY_VERSION: ["3.1"]
 
-
 ruby-ruby3_0:
   variables:
     RUBYGEMS_VERSION: "3.5.23"
@@ -121,7 +118,6 @@ ruby-ruby3_0:
   parallel:
     matrix:
       - RUBY_VERSION: ["3.0"]
-
 
 ruby-ruby2_7:
   variables:
