@@ -6,7 +6,7 @@
 # nomono will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
 
-# nomono Rakefile v1.0.0 - 2026-04-05
+# nomono Rakefile v1.0.0 - 2026-04-09
 # Ruby 2.3 (Safe Navigation) or higher required
 #
 # MIT License (see License.txt)
@@ -75,8 +75,6 @@ rescue LoadError
   end
 end
 
-require "kettle/jem"
-
 ### RELEASE TASKS
 # Setup stone_checksums
 begin
@@ -87,11 +85,3 @@ rescue LoadError
     warn("NOTE: stone_checksums isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
   end
 end
-require "bundler/gem_tasks"
-require "rspec/core/rake_task"
-
-RSpec::Core::RakeTask.new(:spec)
-
-require "rubocop/rake_task"
-
-RuboCop::RakeTask.new
