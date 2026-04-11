@@ -9,7 +9,7 @@
 # nomono Rakefile v1.0.0 - 2026-04-09
 # Ruby 2.3 (Safe Navigation) or higher required
 #
-# MIT License (see License.txt)
+# See LICENSE.md for license information.
 #
 # Copyright (c) 2026 Peter H. Boling (galtzo.com)
 #
