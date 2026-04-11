@@ -15,7 +15,7 @@
 #
 # Expected to work in any project that uses Bundler.
 #
-# Sets up tasks for appraisal, floss_funding, rspec, minitest, rubocop, reek, yard, and stone_checksums.
+# Sets up tasks for appraisal2, floss_funding, kettle-jem, kettle-dev, rspec, minitest, rubocop_gradual, reek, yard, and stone_checksums.
 #
 # rake appraisal:install                      # Install Appraisal gemfiles (initial setup...
 # rake appraisal:reset                        # Delete Appraisal lockfiles (gemfiles/*.gemfile.lock)
