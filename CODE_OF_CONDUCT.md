@@ -1,16 +1,5 @@
 # Contributor Covenant Code of Conduct
 
-"nomono" follows [The Ruby Community Conduct Guideline](https://www.ruby-lang.org/en/conduct) in all "collaborative space", which is defined as community communications channels (such as mailing lists, submitted patches, commit comments, etc.):
-
-* Participants will be tolerant of opposing views.
-* Participants must ensure that their language and actions are free of personal attacks and disparaging personal remarks.
-* When interpreting the words and actions of others, participants should always assume good intentions.
-* Behaviour which can be reasonably considered harassment will not be tolerated.
-
-If you have any concerns about behaviour within this project, please contact us at ["peter.boling@gmail.com"](mailto:"peter.boling@gmail.com").
-
-# Contributor Covenant Code of Conduct
-
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our
@@ -19,6 +8,7 @@ size, visible or invisible disability, ethnicity, sex characteristics, gender
 identity and expression, level of experience, education, socio-economic status,
 nationality, personal appearance, race, caste, color, religion, or sexual
 identity and orientation.
+
 We pledge to act and interact in ways that contribute to an open, welcoming,
 diverse, inclusive, and healthy community.
 
@@ -142,13 +132,3 @@ For answers to common questions about this code of conduct, see the FAQ at
 [translations]: https://www.contributor-covenant.org/translations
 [🚂maint-contact]: http://www.railsbling.com/contact
 [🚂maint-contact-img]: https://img.shields.io/badge/Contact-Maintainer-0093D0.svg?style=flat&logo=rubyonrails&logoColor=red
-
-We as members, contributors, and leaders pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, caste, color, religion, or sexual
-identity and orientation.
-
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
