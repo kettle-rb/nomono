@@ -6,7 +6,7 @@
 <title>
   File: AGENTS
   
-    &mdash; Documentation by YARD 0.9.38
+    &mdash; Documentation by YARD 0.9.39
   
 </title>
 
@@ -64,7 +64,12 @@
 <p>This project is a <strong>RubyGem</strong> managed with the <a href="https://github.com/kettle-rb">kettle-rb</a> toolchain.</p>
 
 <p><strong>Minimum Supported Ruby</strong>: See the gemspec <code>required_ruby_version</code> constraint.<br>
-<strong>Local Development Ruby</strong>: See <code>.tool-versions</code> for the version used in local development (typically the latest stable Ruby).</p>
+<strong>Local Development Ruby</strong>: See <code>mise.toml</code> for the version used in local development (typically the latest stable Ruby).</p>
+
+<h3 id="modular-gemfile-architecture">Modular Gemfile Architecture</h3>
+
+<p>Gemfiles are split into modular components under <code>gemfiles/modular/</code>. Each component handles a specific concern (coverage, style, debug, etc.). The main <code>Gemfile</code> loads these modular components via <code>eval_gemfile</code>.<br>
+Gemfiles in the project, including modular ones, can utilize a <code>*_local.gemfile</code> counterpart pattern enabled via an ENV flag. This uses <code>nomono</code> to load sibling gems in the same workspace.</p>
 
 <h2 id="️-ai-agent-terminal-limitations">⚠️ AI Agent Terminal Limitations</h2>
 
@@ -77,31 +82,36 @@
 <p><strong>Recovery rule</strong>: If a <code>mise exec</code> command goes silent or appears hung, assume <code>mise trust</code> is the first thing to check. Recover by running:</p>
 
 <pre class="code language-bash"><code class="language-bash">mise trust -C /path/to/project
-mise exec -C /path/to/project -- bundle exec rspec
+mise exec -C /path/to/project -- bundle exec kettle-test
 </code></pre>
 
 <p>Do this before spending time on unrelated debugging; in this workspace pattern, silent <code>mise</code> commands are usually a trust problem first.</p>
 
 <p>✅ <strong>CORRECT</strong> — Run self-contained commands with <code>mise exec</code>:</p>
-<pre class="code language-bash"><code class="language-bash">mise exec -C /path/to/project -- bundle exec rspec
+
+<pre class="code language-bash"><code class="language-bash">mise exec -C /path/to/project -- bundle exec kettle-test
 </code></pre>
 
 <p>✅ <strong>CORRECT</strong> — If you need shell syntax first, load the environment in the same command:</p>
-<pre class="code language-bash"><code class="language-bash">eval &quot;$(mise env -C /path/to/project -s bash)&quot; &amp;&amp; bundle exec rspec
+
+<pre class="code language-bash"><code class="language-bash">eval &quot;$(mise env -C /path/to/project -s bash)&quot; &amp;&amp; bundle exec kettle-test
 </code></pre>
 
 <p>❌ <strong>WRONG</strong> — Do not rely on a previous command changing directories:</p>
+
 <pre class="code language-bash"><code class="language-bash">cd /path/to/project
 bundle exec rspec
 </code></pre>
 
 <p>❌ <strong>WRONG</strong> — A chained <code>cd</code> does not give directory-change hooks time to update the environment:</p>
+
 <pre class="code language-bash"><code class="language-bash">cd /path/to/project &amp;&amp; bundle exec rspec
 </code></pre>
 
 <h3 id="prefer-internal-tools-over-terminal">Prefer Internal Tools Over Terminal</h3>
 
 <p>✅ <strong>PREFERRED</strong> — Use internal tools:</p>
+
 <ul>
   <li>
 <code>grep_search</code> instead of <code>grep</code> command</li>
@@ -116,17 +126,19 @@ bundle exec rspec
 </ul>
 
 <p>❌ <strong>AVOID</strong> when possible:</p>
+
 <ul>
   <li>
 <code>run_in_terminal</code> for information gathering</li>
 </ul>
 
 <p>Only use terminal for:</p>
+
 <ul>
-  <li>Running tests (<code>bundle exec rspec</code>)</li>
+  <li>Running tests (<code>bundle exec kettle-test</code>)</li>
   <li>Installing dependencies (<code>bundle install</code>)</li>
-  <li>Git operations that require interaction</li>
-  <li>Commands that actually need to execute (not just gather info)</li>
+  <li>Simple commands that do not require much shell escaping</li>
+  <li>Running scripts (prefer writing a script over a complicated command with shell escaping)</li>
 </ul>
 
 <p>When you do run tests, keep the full output visible so you can inspect failures completely.</p>
@@ -230,20 +242,64 @@ gemfiles/
 
 <h3 id="running-commands">Running Commands</h3>
 
-<p>Always make commands self-contained. Use <code>mise exec -C /home/pboling/src/kettle-rb/prism-merge -- ...</code> so the command gets the project environment in the same invocation.</p>
+<p>Always make commands self-contained. Use <code>mise exec -C /home/pboling/src/kettle-rb/prism-merge -- ...</code> so the command gets the project environment in the same invocation.<br>
+If the command is complicated write a script in local tmp/ and then run the script.</p>
 
 <h3 id="running-tests">Running Tests</h3>
 
-<p>Full suite spec runs:</p>
+<p><strong>Always run specs via <code>kettle-test</code></strong> (provided by <code>kettle-test</code>). It runs <code>bundle exec rspec</code>,<br>
+captures all output to <code>tmp/kettle-test/rspec-TIMESTAMP.log</code>, and prints a structured highlight block:<br>
+timing, seed, pass/fail count, failing examples, and SimpleCov coverage percentages.</p>
 
-<pre class="code language-bash"><code class="language-bash">mise exec -C /path/to/project -- bundle exec rspec
+<p>Full suite:</p>
+
+<pre class="code language-bash"><code class="language-bash">mise exec -C /path/to/project -- bundle exec kettle-test
 </code></pre>
 
 <p>For single file, targeted, or partial spec runs the coverage threshold <strong>must</strong> be disabled.<br>
 Use the <code>K_SOUP_COV_MIN_HARD=false</code> environment variable to disable hard failure:</p>
 
-<pre class="code language-bash"><code class="language-bash">mise exec -C /path/to/project -- env K_SOUP_COV_MIN_HARD=false bundle exec rspec spec/path/to/spec.rb
+<pre class="code language-bash"><code class="language-bash">mise exec -C /path/to/project -- env K_SOUP_COV_MIN_HARD=false bundle exec kettle-test spec/path/to/spec.rb
 </code></pre>
+
+<h3 id="template-management-kettle-jem">Template Management (kettle-jem)</h3>
+
+<p>Run the kettle-jem templater to sync project files with the latest template:</p>
+
+<pre class="code language-bash"><code class="language-bash"># Standard run (quiet, non-interactive — the default)
+mise exec -C /path/to/project -- bundle exec rake kettle:jem:install
+
+# Verbose output (see per-file detail)
+mise exec -C /path/to/project -- env KETTLE_JEM_VERBOSE=true bundle exec rake kettle:jem:install
+
+# Interactive mode (prompt before each change)
+mise exec -C /path/to/project -- bundle exec rake kettle:jem:install force=false
+</code></pre>
+
+<p><strong>Current defaults</strong> (no flags needed):</p>
+<ul>
+  <li>
+<strong>quiet=true</strong> — only phase summary lines shown; use <code>--verbose</code> or <code>KETTLE_JEM_VERBOSE=true</code> to opt out</li>
+  <li>
+<strong>force=true</strong> — non-interactive; use <code>--interactive</code> or <code>force=false</code> to opt out</li>
+  <li>
+<strong>allowed=true</strong> — env file changes auto-accepted; set <code>allowed=false</code> to require review</li>
+</ul>
+
+<h3 id="building--installing-locally">Building &amp; Installing Locally</h3>
+
+<p>To test local code changes across sibling repos, rebuild and reinstall the gem:</p>
+
+<pre class="code language-bash"><code class="language-bash">cd /path/to/gem &amp;&amp; rm -rf *.gem &amp;&amp; SKIP_GEM_SIGNING=true gem build *.gemspec &amp;&amp; gem install --force *.gem
+</code></pre>
+
+<ul>
+  <li>
+<code>SKIP_GEM_SIGNING=true</code> bypasses the PEM passphrase prompt for signed gemspecs.</li>
+  <li>
+<code>--force</code> overwrites the currently installed version.</li>
+  <li>Always rebuild <strong>and</strong> reinstall before verifying cross-repo behaviour.</li>
+</ul>
 
 <h3 id="coverage-reports">Coverage Reports</h3>
 
@@ -286,7 +342,7 @@ bin/kettle-release        # Full release workflow
 # kettle-jem:unfreeze
 </code></pre>
 
-<h3 id="modular-gemfile-architecture">Modular Gemfile Architecture</h3>
+<h3 id="modular-gemfile-architecture-1">Modular Gemfile Architecture</h3>
 
 <p>Gemfiles are split into modular components under <code>gemfiles/modular/</code>. Each component handles a specific concern (coverage, style, debug, etc.). The main <code>Gemfile</code> loads these modular components via <code>eval_gemfile</code>.</p>
 
@@ -329,20 +385,24 @@ end
 
 <ol>
   <li>
-<strong>NEVER add backward compatibility</strong> — No shims, aliases, or deprecation layers. Bump major version instead.</li>
-  <li>
-<strong>NEVER expect <code>cd</code> to persist</strong> — Every terminal command is isolated; use a self-contained <code>mise exec -C ... -- ...</code> invocation.</li>
-  <li>
 <strong>NEVER pipe test output through <code>head</code>/<code>tail</code></strong> — Run tests without truncation so you can inspect the full output.</li>
   <li>
-<strong>Terminal commands do not share shell state</strong> — Previous <code>cd</code>, <code>export</code>, aliases, and functions are not available to the next command.</li>
+<strong>README.md is mostly auto-generated by kettle-jem</strong> — Only the following sections may be edited by hand or by agents:
+    <ul>
+      <li><code>## 🌻 Synopsis</code></li>
+      <li><code>## ⚙️ Configuration</code></li>
+      <li><code>## 🔧 Basic Usage</code></li>
+    </ul>
+
+    <p>All other sections (badges, installation, FLOSS funding, security, contributing, versioning, license, etc.) are managed by the kettle-jem template and will be overwritten on the next templating run. Do not edit them.</p>
+  </li>
 </ol>
 </div></div>
 
       <div id="footer">
-  Generated on Thu Mar 26 15:33:27 2026 by
+  Generated on Sun Apr 12 11:50:02 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.38 (ruby-4.0.1).
+  0.9.39 (ruby-4.0.2).
 </div>
 
     </div>
