@@ -63,8 +63,6 @@ task :default do
 end
 
 # External gems that define tasks - add here!
-require "kettle/dev"
-
 
 ### DUPLICATE DRIFT TASKS
 begin
@@ -86,7 +84,6 @@ rescue LoadError
   desc("(stub) kettle:drift is unavailable")
   task("kettle:drift" => "kettle:drift:update")
 end
-
 
 ### TEMPLATING TASKS
 begin
