@@ -9,4 +9,5 @@ If none of the above licenses fit your use case, please [contact us](mailto:flos
 
 ## Copyright Notice
 
+Copyright (c) 2026 autobolt
 Copyright (c) 2026 Peter H. Boling

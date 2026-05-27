@@ -4,4 +4,3 @@ module Nomono
   end
   VERSION: String
 end
-

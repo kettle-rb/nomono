@@ -84,7 +84,7 @@
 # Set this to a single emoji that represents your gem. Examples: 🪙 🔑 🛠️ 🔮
 # This key is REQUIRED. kettle-jem will abort if it is absent.
 # ENV override: KJ_PROJECT_EMOJI
-project_emoji: "1️⃣"
+project_emoji: 1️⃣
 
 # Engines this project supports.
 # List the Ruby engines that your gem targets. kettle-jem uses this to decide
@@ -449,6 +449,8 @@ files:
     strategy: accept_template
   Appraisal.root.gemfile:
     strategy: accept_template
+  Rakefile:
+    strategy: accept_template
   .github:
     copilot_instructions.md:
       strategy: accept_template
@@ -637,3 +639,23 @@ kettle-jem:
     "mise.toml.no-osc.example": "006bfce3aaed4bdac42e0788cf30af6cd5e8cdafc0002ddc7db74f186c5875f4"
     "parsers.toml.example": "f0538ae7ad8596be2dc39b3ea663f1164dec21fb0457233c1885097e774aff6f"
     "tmp/.gitignore.example": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+# To override specific files, add entries like:
+#
+# files:
+#   README.md:
+#     strategy: accept_template
+#
+#   SECURITY.md:
+#     strategy: keep_destination
+#
+#   certs:
+#     pboling.pem:
+#       strategy: raw_copy
+#
+#   .git-hooks:
+#     commit-msg:
+#       strategy: merge
+#       file_type: ruby
+#
+#   Rakefile:
+#     strategy: accept_template

@@ -17,6 +17,33 @@
       ]
     }
   ],
+  "#       strategy: merge\n#       file_type: ruby": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        486,
+        657
+      ]
+    }
+  ],
+  "#     commit-msg:\n#       strategy: merge": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        485,
+        656
+      ]
+    }
+  ],
+  "#     pboling.pem:\n#       strategy: raw_copy": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        481,
+        652
+      ]
+    }
+  ],
   "#   - \"note:*\"\n#   - \"setup*\"": [
     {
       "file": ".kettle-jem.yml",
@@ -41,6 +68,42 @@
       "lines": [
         225,
         266
+      ]
+    }
+  ],
+  "#   .git-hooks:\n#     commit-msg:": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        484,
+        655
+      ]
+    }
+  ],
+  "#   README.md:\n#     strategy: accept_template": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        474,
+        645
+      ]
+    }
+  ],
+  "#   SECURITY.md:\n#     strategy: keep_destination": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        477,
+        648
+      ]
+    }
+  ],
+  "#   certs:\n#     pboling.pem:": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        480,
+        651
       ]
     }
   ],
@@ -161,6 +224,15 @@
       ]
     }
   ],
+  "# files:\n#   README.md:": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        473,
+        644
+      ]
+    }
+  ],
   "# framework_matrix (only used when preset: framework):\n#   dimension   — framework name used in the matrix key and display": [
     {
       "file": ".kettle-jem.yml",
@@ -256,62 +328,19 @@
     {
       "file": "gemfiles/modular/coverage_local.gemfile",
       "lines": [
-        21,
-        40
+        24,
+        43
       ]
     },
     {
       "file": "gemfiles/modular/templating_local.gemfile",
       "lines": [
-        43,
-        52
+        84,
+        93
       ]
     }
   ],
   "prefix: \"KETTLE_RB\",\npath_env: \"KETTLE_RB_DEV\",": [
-    {
-      "file": "gemfiles/modular/coverage_local.gemfile",
-      "lines": [
-        20,
-        39
-      ]
-    },
-    {
-      "file": "gemfiles/modular/templating_local.gemfile",
-      "lines": [
-        42,
-        51
-      ]
-    }
-  ],
-  "prism-merge\npsych-merge": [
-    {
-      "file": "gemfiles/modular/templating_local.gemfile",
-      "lines": [
-        17,
-        77
-      ]
-    }
-  ],
-  "psych-merge\nrbs-merge": [
-    {
-      "file": "gemfiles/modular/templating_local.gemfile",
-      "lines": [
-        18,
-        78
-      ]
-    }
-  ],
-  "tree_haver\nast-merge": [
-    {
-      "file": "gemfiles/modular/templating_local.gemfile",
-      "lines": [
-        10,
-        60
-      ]
-    }
-  ],
-  "vendor_gem_dir_env: \"VENDOR_GEM_DIR\",\ndebug_env: \"KETTLE_DEV_DEBUG\",": [
     {
       "file": "gemfiles/modular/coverage_local.gemfile",
       "lines": [
@@ -322,8 +351,51 @@
     {
       "file": "gemfiles/modular/templating_local.gemfile",
       "lines": [
-        45,
-        54
+        83,
+        92
+      ]
+    }
+  ],
+  "prism-merge\npsych-merge": [
+    {
+      "file": "gemfiles/modular/templating_local.gemfile",
+      "lines": [
+        17,
+        44
+      ]
+    }
+  ],
+  "psych-merge\nrbs-merge": [
+    {
+      "file": "gemfiles/modular/templating_local.gemfile",
+      "lines": [
+        18,
+        45
+      ]
+    }
+  ],
+  "tree_haver\nast-merge": [
+    {
+      "file": "gemfiles/modular/templating_local.gemfile",
+      "lines": [
+        10,
+        27
+      ]
+    }
+  ],
+  "vendor_gem_dir_env: \"VENDOR_GEM_DIR\",\ndebug_env: \"KETTLE_DEV_DEBUG\",": [
+    {
+      "file": "gemfiles/modular/coverage_local.gemfile",
+      "lines": [
+        26,
+        45
+      ]
+    },
+    {
+      "file": "gemfiles/modular/templating_local.gemfile",
+      "lines": [
+        86,
+        95
       ]
     }
   ]

@@ -223,16 +223,6 @@ bin/kettle-pre-release    # Validate everything before release
 bin/kettle-release        # Full release workflow
 ```
 
-Never manually edit `CHANGELOG.md` outside the `Unreleased` section. For a
-release, update `lib/nomono/version.rb`, keep pending notes only under
-`Unreleased`, and run `bin/kettle-changelog` or `bundle exec kettle-changelog`
-so the release section, statistics, and links are generated in the strict
-project format.
-
-Generated `docs/` output is managed by the release documentation process. Do not
-edit, revert, clean, review, or otherwise manage `docs/` changes unless the user
-explicitly asks for docs-generation internals.
-
 ## 📝 Project Conventions
 
 ### Freeze Block Preservation
