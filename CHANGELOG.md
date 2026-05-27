@@ -28,6 +28,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Updated the development dependency floor to `kettle-dev` 2.0.1 so the
+  templated `yard` rake task installs the expected yard-timekeeper cleanup.
+- Routed `bin/yard` through `bin/rake yard` so direct documentation runs use the
+  same rake-installed documentation plugin hooks.
 - Restored templated Rake task loading so `bin/rake` runs the expected
   development task set instead of only the default stub.
 - Restored full line and branch coverage for the public resolver and installer
