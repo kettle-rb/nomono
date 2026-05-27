@@ -82,23 +82,16 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="fixed">Fixed</h3>
 
-<ul>
-  <li>Restored templated Rake task loading so <code>bin/rake</code> runs the expected<br>
-development task set instead of only the default stub.</li>
-  <li>Restored full line and branch coverage for the public resolver and installer<br>
-behavior.</li>
-</ul>
-
 <h3 id="security">Security</h3>
 
-<h2 id="101---2026-05-26">
-<a href="https://github.com/kettle-rb/nomono/compare/v1.0.0...v1.0.1">1.0.1</a> - 2026-05-26</h2>
+<h2 id="101---2026-05-27">
+<a href="https://github.com/kettle-rb/nomono/compare/v1.0.0...v1.0.1">1.0.1</a> - 2026-05-27</h2>
 
 <ul>
   <li>TAG: <a href="https://github.com/kettle-rb/nomono/releases/tag/v1.0.1">v1.0.1</a>
 </li>
-  <li>COVERAGE: 95.35% – 82/86 lines in 4 files</li>
-  <li>BRANCH COVERAGE: 67.86% – 19/28 branches in 4 files</li>
+  <li>COVERAGE: 100.00% – 86/86 lines in 4 files</li>
+  <li>BRANCH COVERAGE: 100.00% – 28/28 branches in 4 files</li>
   <li>12.50% documented</li>
 </ul>
 
@@ -114,6 +107,19 @@ behavior.</li>
   <li>Retemplated with the current kettle-jem template set.</li>
 </ul>
 
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>(dev) Updated the development dependency floor to <code>kettle-dev</code> 2.0.1 so the<br>
+templated <code>yard</code> rake task installs the expected yard-timekeeper cleanup.</li>
+  <li>(dev) Routed <code>bin/yard</code> through <code>bin/rake yard</code> so direct documentation runs use the<br>
+same rake-installed documentation plugin hooks.</li>
+  <li>(dev) Restored templated Rake task loading so <code>bin/rake</code> runs the expected<br>
+development task set instead of only the default stub.</li>
+  <li>(dev) Restored full line and branch coverage for the public resolver and installer<br>
+behavior.</li>
+</ul>
+
 <h2 id="100---2026-03-26">
 <a href="https://github.com/kettle-rb/nomono/compare/3080fe8ceff657265445e8b4936aa2a90faa37f9...v1.0.0">1.0.0</a> - 2026-03-26</h2>
 
@@ -126,7 +132,7 @@ behavior.</li>
 </div></div>
 
       <div id="footer">
-  Generated on Tue May 26 23:47:28 2026 by
+  Generated on Wed May 27 03:12:42 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>

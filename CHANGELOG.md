@@ -28,22 +28,13 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Updated the development dependency floor to `kettle-dev` 2.0.1 so the
-  templated `yard` rake task installs the expected yard-timekeeper cleanup.
-- Routed `bin/yard` through `bin/rake yard` so direct documentation runs use the
-  same rake-installed documentation plugin hooks.
-- Restored templated Rake task loading so `bin/rake` runs the expected
-  development task set instead of only the default stub.
-- Restored full line and branch coverage for the public resolver and installer
-  behavior.
-
 ### Security
 
-## [1.0.1] - 2026-05-26
+## [1.0.1] - 2026-05-27
 
 - TAG: [v1.0.1][1.0.1t]
-- COVERAGE: 95.35% -- 82/86 lines in 4 files
-- BRANCH COVERAGE: 67.86% -- 19/28 branches in 4 files
+- COVERAGE: 100.00% -- 86/86 lines in 4 files
+- BRANCH COVERAGE: 100.00% -- 28/28 branches in 4 files
 - 12.50% documented
 
 ### Added
@@ -53,6 +44,17 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Changed
 
 - Retemplated with the current kettle-jem template set.
+
+### Fixed
+
+- (dev) Updated the development dependency floor to `kettle-dev` 2.0.1 so the
+  templated `yard` rake task installs the expected yard-timekeeper cleanup.
+- (dev) Routed `bin/yard` through `bin/rake yard` so direct documentation runs use the
+  same rake-installed documentation plugin hooks.
+- (dev) Restored templated Rake task loading so `bin/rake` runs the expected
+  development task set instead of only the default stub.
+- (dev) Restored full line and branch coverage for the public resolver and installer
+  behavior.
 
 ## [1.0.0] - 2026-03-26
 
