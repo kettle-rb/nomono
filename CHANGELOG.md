@@ -28,6 +28,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Restored templated Rake task loading so `bin/rake` runs the expected
+  development task set instead of only the default stub.
+
 ### Security
 
 ## [1.0.1] - 2026-05-26

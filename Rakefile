@@ -63,6 +63,12 @@ task :default do
 end
 
 # External gems that define tasks - add here!
+begin
+  require "kettle/dev"
+  Kettle::Dev.install_tasks unless Kettle::Dev::RUNNING_AS == "rake"
+rescue LoadError
+  warn("NOTE: kettle-dev isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
+end
 
 ### DUPLICATE DRIFT TASKS
 begin
@@ -88,6 +94,7 @@ end
 ### TEMPLATING TASKS
 begin
   require "kettle/jem"
+  Kettle::Jem.install_tasks
 rescue LoadError
   desc("(stub) kettle:jem:selftest is unavailable")
   task("kettle:jem:selftest") do
