@@ -28,6 +28,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Made the debug-output resolver spec tolerant of Ruby implementation
+  differences in `Hash#inspect` spacing.
+
 ### Security
 
 ## [1.0.1] - 2026-05-27

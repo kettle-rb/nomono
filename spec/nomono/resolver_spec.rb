@@ -70,7 +70,7 @@ RSpec.describe Nomono::Resolver do
 
       expect do
         resolver.gems(gems: %w[kettle-dev])
-      end.to output(%r{Nomono gem_paths: \{"kettle-dev" => "/workspace/kettle-rb/kettle-dev"\}}).to_stdout
+      end.to output(%r{Nomono gem_paths: \{"kettle-dev"\s*=>\s*"/workspace/kettle-rb/kettle-dev"\}}).to_stdout
     end
 
     it "rejects invalid gem names" do
