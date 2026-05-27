@@ -18,17 +18,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ## [Unreleased]
 
-## [1.0.1] - 2026-05-26
-
-- TAG: [v1.0.1][1.0.1t]
-
 ### Added
 
-- Improved documentation of ENV variables and overrides in README.md
-
 ### Changed
-
-- Retemplated with the current kettle-jem template set.
 
 ### Deprecated
 
@@ -38,6 +30,21 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Security
 
+## [1.0.1] - 2026-05-26
+
+- TAG: [v1.0.1][1.0.1t]
+- COVERAGE: 95.35% -- 82/86 lines in 4 files
+- BRANCH COVERAGE: 67.86% -- 19/28 branches in 4 files
+- 12.50% documented
+
+### Added
+
+- Improved documentation of ENV variables and overrides in README.md
+
+### Changed
+
+- Retemplated with the current kettle-jem template set.
+
 ## [1.0.0] - 2026-03-26
 
 - TAG: [v1.0.0][1.0.0t]
@@ -45,6 +52,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 [Unreleased]: https://github.com/kettle-rb/nomono/compare/v1.0.1...HEAD
 [1.0.1]: https://github.com/kettle-rb/nomono/compare/v1.0.0...v1.0.1
-[1.0.1t]: https://github.com/kettle-rb/nomono/tags/v1.0.1
+[1.0.1t]: https://github.com/kettle-rb/nomono/releases/tag/v1.0.1
 [1.0.0]: https://github.com/kettle-rb/nomono/compare/3080fe8ceff657265445e8b4936aa2a90faa37f9...v1.0.0
 [1.0.0t]: https://github.com/kettle-rb/nomono/tags/v1.0.0
