@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Fixed generated documentation URLs that incorrectly pointed at a monorepo
+  `gems/nomono` path.
 - Made the debug-output resolver spec tolerant of Ruby implementation
   differences in `Hash#inspect` spacing.
 
