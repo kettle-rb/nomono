@@ -233,9 +233,9 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 14. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to the gem host configured in the gemspec.
 
-[📜src-gl]: https://gitlab.com/kettle-rb/nomono/-/tree/main/gems/nomono
-[📜src-cb]: https://codeberg.org/kettle-rb/nomono/src/branch/main/gems/nomono
-[📜src-gh]: https://github.com/kettle-rb/nomono/tree/main/gems/nomono
+[📜src-gl]: https://gitlab.com/kettle-rb/nomono
+[📜src-cb]: https://codeberg.org/kettle-rb/nomono
+[📜src-gh]: https://github.com/kettle-rb/nomono
 [🧪build]: https://github.com/kettle-rb/nomono/actions
 [🤝conduct]: https://github.com/kettle-rb/nomono/blob/main/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks
