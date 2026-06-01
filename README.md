@@ -141,7 +141,7 @@ nomono_gems(
   path_env: "RUBOCOP_LTS_LOCAL",
   vendored_gems_env: "VENDORED_GEMS",
   vendor_gem_dir_env: "VENDOR_GEM_DIR",
-  debug_env: "RUBOCOP_LTS_DEBUG",
+  debug_env: "RUBOCOP_LTS_DEBUG"
 )
 ```
 

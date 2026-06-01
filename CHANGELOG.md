@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.2] - 2026-05-31
+
+- TAG: [v1.0.2][1.0.2t]
+- COVERAGE: 100.00% -- 86/86 lines in 4 files
+- BRANCH COVERAGE: 100.00% -- 28/28 branches in 4 files
+- 12.50% documented
+
+### Added
+
 - Added StructuredMerge git diff driver configuration and the incident response
   plan from the current kettle-jem template.
 
@@ -30,18 +49,12 @@ Please file a bug if you notice a violation of semantic versioning.
   templating attribution refresh, current modular Gemfile dependencies, and the
   `kettle-dev` 2.0.6 development dependency floor.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - Fixed generated documentation URLs that incorrectly pointed at a monorepo
   `gems/nomono` path.
 - Made the debug-output resolver spec tolerant of Ruby implementation
   differences in `Hash#inspect` spacing.
-
-### Security
 
 ## [1.0.1] - 2026-05-27
 
@@ -74,7 +87,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - TAG: [v1.0.0][1.0.0t]
 - 12.50% documented
 
-[Unreleased]: https://github.com/kettle-rb/nomono/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/kettle-rb/nomono/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/kettle-rb/nomono/compare/v1.0.1...v1.0.2
+[1.0.2t]: https://github.com/kettle-rb/nomono/releases/tag/v1.0.2
 [1.0.1]: https://github.com/kettle-rb/nomono/compare/v1.0.0...v1.0.1
 [1.0.1t]: https://github.com/kettle-rb/nomono/releases/tag/v1.0.1
 [1.0.0]: https://github.com/kettle-rb/nomono/compare/3080fe8ceff657265445e8b4936aa2a90faa37f9...v1.0.0

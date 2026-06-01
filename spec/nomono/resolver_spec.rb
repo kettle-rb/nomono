@@ -24,7 +24,7 @@ RSpec.describe Nomono::Resolver do
       expect(resolver.gems(gems: gems)).to eq(
         "kettle-dev" => "/home/test/src/kettle-rb/kettle-dev",
         "kettle-test" => "/home/test/src/kettle-rb/kettle-test",
-        "kettle-soup-cover" => "/home/test/src/kettle-rb/kettle-soup-cover",
+        "kettle-soup-cover" => "/home/test/src/kettle-rb/kettle-soup-cover"
       )
     end
 
@@ -36,7 +36,7 @@ RSpec.describe Nomono::Resolver do
       expect(resolver.gems(gems: gems)).to eq(
         "kettle-dev" => "/workspace/kettle-rb/kettle-dev",
         "kettle-test" => "/workspace/kettle-rb/vendor/kettle-test",
-        "kettle-soup-cover" => "/workspace/kettle-rb/kettle-soup-cover",
+        "kettle-soup-cover" => "/workspace/kettle-rb/kettle-soup-cover"
       )
     end
 
@@ -47,7 +47,7 @@ RSpec.describe Nomono::Resolver do
       expect(resolver.gems(gems: gems)).to eq(
         "kettle-dev" => "/workspace/kettle-rb/kettle-dev",
         "kettle-test" => "/workspace/kettle-rb/vendor/kettle-test",
-        "kettle-soup-cover" => "/workspace/kettle-rb/kettle-soup-cover",
+        "kettle-soup-cover" => "/workspace/kettle-rb/kettle-soup-cover"
       )
     end
 
@@ -59,8 +59,8 @@ RSpec.describe Nomono::Resolver do
           gems: gems,
           prefix: "KETTLE_RB",
           vendored_gems_env: "KETTLE_RB_VENDORED_GEMS",
-          vendor_gem_dir_env: "KETTLE_RB_VENDOR_GEM_DIR",
-        ),
+          vendor_gem_dir_env: "KETTLE_RB_VENDOR_GEM_DIR"
+        )
       ).to include("kettle-dev" => "/home/test/relative/path/kettle-dev")
     end
 
@@ -93,7 +93,7 @@ RSpec.describe Nomono::Resolver do
       env["NOMONO_GEMS_DEV"] = "true"
 
       expect(
-        resolver.gems(gems: %w[kettle-dev], allowlist: %w[kettle-test], strict: false),
+        resolver.gems(gems: %w[kettle-dev], allowlist: %w[kettle-test], strict: false)
       ).to eq("kettle-dev" => "/home/test/src/kettle-rb/kettle-dev")
     end
   end
