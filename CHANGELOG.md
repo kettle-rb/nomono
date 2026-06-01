@@ -20,7 +20,15 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Added StructuredMerge git diff driver configuration and the incident response
+  plan from the current kettle-jem template.
+
 ### Changed
+
+- Retemplated with the current kettle-jem template set, including the
+  `.structuredmerge/kettle-jem.yml` config migration, README logo and
+  templating attribution refresh, current modular Gemfile dependencies, and the
+  `kettle-dev` 2.0.6 development dependency floor.
 
 ### Deprecated
 
